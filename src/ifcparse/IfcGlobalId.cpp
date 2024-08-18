@@ -28,6 +28,7 @@
 #include <boost/uuid/uuid_generators.hpp>
 #include <boost/uuid/uuid_io.hpp>
 #include <boost/version.hpp>
+#include <boost/random.hpp>
 #include <vector>
 
 static const char* chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_$";
@@ -88,7 +89,7 @@ void expand(const std::string& s, std::vector<unsigned char>& v) {
 }
 
 // A random number generator for the UUID
-static boost::uuids::basic_random_generator<boost::mt19937> gen;
+static boost::uuids::basic_random_generator<boost::random::mt19937> gen;
 
 IfcParse::IfcGlobalId::IfcGlobalId() {
     uuid_data_ = gen();
